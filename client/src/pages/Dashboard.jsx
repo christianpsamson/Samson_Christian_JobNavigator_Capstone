@@ -61,7 +61,7 @@ const Dashboard = () => {
           <BigSideBar />
           <div>
             <NavBar />
-            <div className="dashboard-page" onClick={toggleSideBar}>
+            <div className="dashboard-page">
               <Outlet context={{ user }} />
             </div>
           </div>

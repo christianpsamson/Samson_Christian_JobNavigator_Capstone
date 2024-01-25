@@ -6,3 +6,4 @@ export { default as NavBar } from "./NavBar";
 export { default as NavBarLinks } from "./NavBarLinks";
 export { default as LogoutContainer } from "./LogoutContainer";
 export { default as ThemeToggle } from "./ThemeToggle";
+export { default as FormRowSelect } from "./FormRowSelect";
