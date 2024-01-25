@@ -32,12 +32,12 @@ const Register = () => {
       <Form method="post" className="form">
         <Logo />
         <h4>Register</h4>
-        <FormRow type="text" name="name" defaultValue="John" />
+        <FormRow type="text" name="name" />
         {/* prettier-ignore */}
-        <FormRow type="text" name="lastName" labelText="Last Name" defaultValue="Smith"/>
-        <FormRow type="text" name="location" defaultValue="New York" />
-        <FormRow type="email" name="email" defaultValue="jsmith@yahoo.com" />
-        <FormRow type="password" name="password" defaultValue="password123" />
+        <FormRow type="text" name="lastName" labelText="Last Name" />
+        <FormRow type="text" name="location" />
+        <FormRow type="email" name="email" />
+        <FormRow type="password" name="password" />
         <button className="btn btn-block" disabled={isSubmitting}>
           {isSubmitting ? "submitting..." : "submit"}
         </button>
