@@ -1,13 +1,29 @@
 import React, { createContext, useContext, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, redirect, useLoaderData, useNavigate } from "react-router-dom";
 import Wrapper from "../assets/wrappers/Dashboard";
 import { SmallSideBar, BigSideBar, NavBar } from "../components";
 import { checkDarkTheme } from "../App";
+import customFetch from "../utils/customFetch";
+
+export const loader = async () => {
+  try {
+    const { data } = await customFetch.get("/users/current-user");
+    return data;
+  } catch (error) {
+    return redirect("/");
+  }
+};
 
 const DashboardContext = createContext();
 
 const Dashboard = () => {
-  const user = { name: "John" }; //temp
+  // Updates the user name in the NavBar
+  /* prettier-ignore */
+  const {msg: { name }} = useLoaderData();
+  const user = { name: name };
+
+  const navigate = useNavigate();
+
   const [showSideBar, setShowSideBar] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(checkDarkTheme());
 
@@ -23,7 +39,9 @@ const Dashboard = () => {
   };
 
   const logoutUser = async () => {
-    console.log("Logout");
+    navigate("/");
+    await customFetch.get("/auth/logout");
+    toast.success("logging out");
   };
 
   return (
