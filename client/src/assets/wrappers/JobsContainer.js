@@ -1,13 +1,14 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.section`
   margin-top: 4rem;
   h2 {
     text-transform: none;
+    margin-bottom: 2rem;
   }
   & > h5 {
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 5rem;
   }
   .jobs {
     display: grid;

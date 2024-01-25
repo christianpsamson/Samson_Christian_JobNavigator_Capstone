@@ -15,7 +15,8 @@ export const action = async ({ request }) => {
     return redirect("/dashboard");
   } catch {
     toast.error(error?.response?.data?.msg);
-    return error;
+
+    return redirect("/login");
   }
 };
 
@@ -30,10 +31,15 @@ const Login = () => {
         <h4>Login</h4>
         <FormRow type="email" name="email" defaultValue="" />
         <FormRow type="password" name="password" defaultValue="" />
-        <button className="btn btn-block">Login</button>
         <button className="btn btn-block" disabled={isSubmitting}>
-          {isSubmitting ? "submitting..." : "Take A Tour"}
+          {isSubmitting ? "submitting..." : "Login"}
         </button>
+        {/* <button className="btn btn-block">
+          {" "}
+          <Link to="/dashboard" style={{ color: "white" }}>
+            Take a Tour
+          </Link>
+        </button> */}
         <p>
           New to Carrera?{" "}
           <Link to="/register" className="login-signup">

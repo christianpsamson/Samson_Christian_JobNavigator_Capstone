@@ -15,6 +15,7 @@ const JobsContainer = () => {
   }
   return (
     <Wrapper>
+      <h2>All Jobs</h2>
       <div className="jobs">
         {jobs.map((job) => {
           return <Job key={job._id} {...job} />;
